@@ -1,6 +1,5 @@
 from symbols import collection
 
-
 def getUniqueSymbol(blacklist):
 	for symbol in collection.split():
 		if not symbol in blacklist:

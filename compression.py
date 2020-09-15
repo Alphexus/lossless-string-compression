@@ -1,8 +1,9 @@
 from symbols import collection
 
-def getUniqueSymbol(blacklist):
+
+def getUniqueSymbol(string, blacklist):
 	for symbol in collection.split():
-		if not symbol in blacklist:
+		if not symbol in blacklist and not symbol in string:
 			return symbol
 
 	return None
@@ -38,12 +39,14 @@ def compress(str):
   blacklist = []
   duplicates = getAllRepeateds(str)
   for dup in duplicates:
-	  newSymbol = getUniqueSymbol(blacklist)
-	  if newSymbol != None:
-		  compressionKey[newSymbol] = dup
-		  blacklist.append(newSymbol)
-		  str = str.replace(dup, newSymbol)
-  
+    newSymbol = getUniqueSymbol(str, blacklist)
+    if newSymbol != None:
+      compressionKey[newSymbol] = dup
+      blacklist.append(newSymbol)
+      str = str.replace(dup, newSymbol)
+    else:
+      break
+
   return str, compressionKey
 
    

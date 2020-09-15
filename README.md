@@ -1,5 +1,5 @@
 # Lossless String Compression
-### A simple way to compress strings at no cost using Python.
+### A simple way to compress strings using Python.
 
 
 #### Demo

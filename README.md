@@ -18,7 +18,7 @@ print("Bytes before compression: %s, Bytes after compression: %s"%(utf8len(phras
 ```
 
 #### Output
-```
+```bash
 Uncompressed: to be or not to be, that is the question
 Compressed: 0 or no10,2a1is2e question
 Bytes before compression: 40, Bytes after compression: 26

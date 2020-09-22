@@ -8,9 +8,9 @@ def getUniqueSymbol(string, blacklist):
 
 	return None
 
-def findRepeated(string):
+def findRepeated(string): # Returns a repeated sequence of character(s) in a string. 
   output = ""
-  for i in range(1, len(string)-1):
+  for i in range(1, len(string)):
     substr = string[:i]
     if string.find(substr, i+1) != -1:
       output = substr
@@ -26,7 +26,7 @@ def getAllRepeateds(text):
     if repeated and len(repeated) > 1:
       output.append(repeated)
       text = text.replace(repeated, "")
-    elif len(text) > 1:
+    elif len(text) > 1: # Repeated sequences must be greater than a length of 1
       text = text[1:]
     else:
       break
@@ -36,8 +36,8 @@ def getAllRepeateds(text):
 
 def compress(str):
   compressionKey = {}
-  blacklist = []
-  duplicates = getAllRepeateds(str)
+  blacklist = [] # Makes sure symbol isn't already used
+  duplicates = getAllRepeateds(str) 
   for dup in duplicates:
     newSymbol = getUniqueSymbol(str, blacklist)
     if newSymbol != None:

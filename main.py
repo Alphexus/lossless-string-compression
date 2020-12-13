@@ -1,12 +1,19 @@
+## Simple Lossless String Compression ##
+
 import compression
 
 phrase = "to be or not to be, that is the question"
-print("Phrase before compression: " + phrase)
-print("Bytes before compression: " + str(len(phrase)))
 compressed, key = compression.compress(phrase)
-print("Phrase after compression: " + compressed)
-print("Bytes after compression: " + str(len(compressed)))
-print("Key for decompression: ", key)
 
-normal = compression.decompress(compressed, key) # Decompress using key
-print(normal)
+def utf8len(s):
+  return len(s.encode('utf-8'))
+
+def dictStringBytes(dictString):
+  sum = 0 
+  for v in dictString:
+    sum += utf8len(v)
+  return sum
+
+print("Uncompressed: " + phrase)
+print("Compressed: " + compressed)
+print("Bytes before compression: %s, Bytes after compression: %s"%(utf8len(phrase), utf8len(compressed)+dictStringBytes(key)))
